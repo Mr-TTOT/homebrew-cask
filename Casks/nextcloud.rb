@@ -6,8 +6,8 @@ cask "nextcloud" do
     url "https://github.com/nextcloud/desktop/releases/download/v#{version.major_minor_patch}/Nextcloud-#{version}.pkg",
         verified: "github.com/nextcloud/desktop/"
   else
-    version "3.5.2"
-    sha256 "8587373d902562b2a14f16dae22b99b3f6275e3be9f6c5e172518b284304f3d7"
+    version "3.6.0"
+    sha256 "bf4d6da4df3453658bd4b14bfcda450109a8ac85005f23785af8ccac54a5f3d3"
 
     url "https://github.com/nextcloud/desktop/releases/download/v#{version}/Nextcloud-#{version}.pkg",
         verified: "github.com/nextcloud/desktop/"
@@ -23,10 +23,13 @@ cask "nextcloud" do
     regex(/Nextcloud[._-]v?(\d+(?:\.\d+)+)\.pkg/i)
   end
 
+  auto_updates true
+
   pkg "Nextcloud-#{version}.pkg"
   binary "/Applications/Nextcloud.app/Contents/MacOS/nextcloudcmd"
 
-  uninstall pkgutil: "com.nextcloud.desktopclient"
+  uninstall pkgutil: "com.nextcloud.desktopclient",
+            delete:  "/Applications/Nextcloud.app"
 
   zap trash: [
     "~/Library/Application Scripts/com.nextcloud.desktopclient.FinderSyncExt",

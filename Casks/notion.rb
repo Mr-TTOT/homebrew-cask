@@ -1,13 +1,14 @@
 cask "notion" do
-  arch = Hardware::CPU.intel? ? "" : "-arm64"
-  livecheck_folder = Hardware::CPU.intel? ? "mac" : "apple-silicon"
+  arch arm: "-arm64"
+  livecheck_folder = on_arch_conditional arm: "apple-silicon", intel: "mac"
 
-  if Hardware::CPU.intel?
-    version "2.0.23"
-    sha256 "8081b230e2e2d7f9a439c17c6a0b9fc281c52cad65358f211149792e9cdd47c1"
-  else
-    version "2.1.0"
-    sha256 "3811d30ee2ca40fe7f88df71e578838ea668d79bf3eb01b453baf3a82a6e333c"
+  on_intel do
+    version "2.1.3"
+    sha256 "3e291c88b59e82c931933802c21fe2940054dceb1bfa46bc59d054216c369fcf"
+  end
+  on_arm do
+    version "2.1.3"
+    sha256 "470438318c8f54d67c54942cab13b7079965d973c39e847197cd4dc00ac85e69"
   end
 
   url "https://desktop-release.notion-static.com/Notion-#{version}#{arch}.dmg",

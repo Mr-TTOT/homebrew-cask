@@ -1,16 +1,19 @@
 cask "chrysalis" do
-  version "0.10.4"
-  sha256 "d3bd5aae7b4e3204032835b8b8f2d7896068aff92ecb41e7f20db7aa0ad0e232"
+  version "0.11.6"
+  sha256 "1175ebe43513221c9219a16df7a365e4139e75f89e03b8942885ae73496cfd5e"
 
   url "https://github.com/keyboardio/Chrysalis/releases/download/v#{version}/Chrysalis-#{version}.dmg"
   name "Chrysalis"
   desc "Graphical configurator for Kaleidoscope-powered keyboards"
   homepage "https://github.com/keyboardio/Chrysalis"
 
+  # This uses a regex that specifically matches versions from release tag links
+  # for this repository only. A description for a previous release linked to a
+  # tag in a different repository, which led to an incorrect version match.
   livecheck do
     url :url
+    regex(%r{href=.*?/Chrysalis/releases/tag/v?(\d+(?:\.\d+)+)["' >]}i)
     strategy :github_latest
-    regex(%r{href=.*?/Chrysalis-(\d+(?:\.\d+)+)\.dmg}i)
   end
 
   app "Chrysalis.app"

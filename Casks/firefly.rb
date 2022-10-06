@@ -1,6 +1,6 @@
 cask "firefly" do
-  version "1.6.3"
-  sha256 "c51110be4e370195ef5e840e80c0ce6220f5501e9cbd6023f82a66a107fb879e"
+  version "1.6.5"
+  sha256 "07be9f0a3c645bd0d9566b7fcc77befd406e727e60aaf2d7f752ab287d3e5ee3"
 
   url "https://github.com/iotaledger/firefly/releases/download/desktop-#{version}/firefly-desktop-#{version}.dmg",
       verified: "github.com/iotaledger/firefly/"
@@ -10,7 +10,7 @@ cask "firefly" do
 
   livecheck do
     url :url
-    regex(/href=.*?firefly-desktop[._-]v?(\d+(?:\.\d+)+)\.dmg/i)
+    regex(%r{href=.*?/tag/desktop[._-]v?(\d+(?:\.\d+)+)["' >]}i)
     strategy :github_latest
   end
 

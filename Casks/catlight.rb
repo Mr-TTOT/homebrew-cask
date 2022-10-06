@@ -1,14 +1,14 @@
 cask "catlight" do
-  version "2.37.0"
-  sha256 "79bd75106c17faa75cdc2e4c7567e67d0c6591ef1071f8020f5807d91de22f72"
+  version "2.38.18"
+  sha256 "dfc80aabb22336d53075f61ec25cb13ae4bcaf6e8848e4600c024314577fd958"
 
-  url "https://download.catlight.io/rel/mac/beta/CatLightSetup-#{version}.zip"
+  url "https://download.catlight.io/rel/mac/release/CatLightSetup-#{version}.zip"
   name "catlight"
   desc "Action center for developers"
   homepage "https://catlight.io/"
 
   livecheck do
-    url "https://catlight.io/downloads/mac/beta"
+    url "https://catlight.io/downloads/mac/release"
     strategy :header_match
   end
 

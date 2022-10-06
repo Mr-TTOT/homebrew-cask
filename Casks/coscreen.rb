@@ -1,13 +1,9 @@
 cask "coscreen" do
-  arch = Hardware::CPU.intel? ? "x64" : "arm64"
+  arch arm: "arm64", intel: "x64"
 
-  version "4.0.67"
-
-  if Hardware::CPU.intel?
-    sha256 "b59f60e405b713f3fd81cdae656fed4d2f3d8c23e70555f4368e52d9e90a7aa2"
-  else
-    sha256 "0cec123742472ed4010650a928b25ce4a05ac596cc8ffe231618dda144c197e1"
-  end
+  version "4.2.9"
+  sha256 arm:   "4bb0b6ca97ff06e2a73d006b13eb1599ffe1120707d72e213d5443c6dd2b0b2a",
+         intel: "aefc10c2d78634a3303354021d2f06054c5589793ffc30af7515db10ff4ff705"
 
   url "https://update.coscreen.org/CoScreen-#{version}-stable-#{arch}.dmg",
       verified: "https://update.coscreen.org/"

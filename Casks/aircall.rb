@@ -1,6 +1,6 @@
 cask "aircall" do
-  version "2.23.1"
-  sha256 "2dfbc4600084c392ef05cda5f13b3df13d95e1e7e36f85e7b1caa9a1d8948c2f"
+  version "2.26.3"
+  sha256 "c6edcdfe8f8277cd0c62cf93eb6531248302753173fdb1f0f3aca6a672931b00"
 
   url "https://download-electron.aircall.io/Aircall-#{version}.zip"
   name "Aircall"

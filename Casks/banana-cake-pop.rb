@@ -1,13 +1,9 @@
 cask "banana-cake-pop" do
-  arch = Hardware::CPU.intel? ? "x64" : "arm64"
+  arch arm: "arm64", intel: "x64"
 
-  version "1.0.0-preview.42"
-
-  if Hardware::CPU.intel?
-    sha256 "0b28a5545975fab169b985ac9c70db9561fa0f5b876c838f91ad2129eb9e90b3"
-  else
-    sha256 "264e01672b79bade0eaf3951737dc3ead15d5fbeebf55afa0e98c04ee476343f"
-  end
+  version "2.0.0"
+  sha256 arm:   "1e3fc1e516a16c8376d436f67cccb896ab6cfa84e7ce826c22b624bcf0cb501e",
+         intel: "1c387640066c22b11e2d1b7496f5ea15f486f475227a3dcab4217dddfe5fdc30"
 
   url "https://download.chillicream.com/bananacakepop/BananaCakePop-#{version}-mac-#{arch}.dmg"
   name "Banana Cake Pop"
@@ -15,8 +11,7 @@ cask "banana-cake-pop" do
   homepage "https://chillicream.com/"
 
   livecheck do
-    # Update to `latest-mac.yml` when stable releases are avaliable
-    url "https://download.chillicream.com/bananacakepop/preview-mac.yml"
+    url "https://download.chillicream.com/bananacakepop/latest-mac.yml"
     strategy :electron_builder
   end
 

@@ -1,5 +1,5 @@
 cask "infoflow" do
-  version "2.3.17.7,20220713153053"
+  version "2.3.20.5,20220920182127"
   sha256 :no_check
 
   url "https://hi-static.cdn.bcebos.com/hi-official/infoflow_setup.dmg",

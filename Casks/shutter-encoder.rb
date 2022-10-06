@@ -1,13 +1,9 @@
 cask "shutter-encoder" do
-  arch = Hardware::CPU.intel? ? "Mac 64bits" : "Apple Silicon"
+  arch arm: "Apple Silicon", intel: "Mac 64bits"
 
-  version "16.1"
-
-  if Hardware::CPU.intel?
-    sha256 "1d473adcde011313701f8290c7ace197331132e3a80763a2da1d2e1c42b7ec23"
-  else
-    sha256 "9abaa8e23e454f56b0c7be3337721a4ecd6308bc116fef10c72738e0a5123bcf"
-  end
+  version "16.3"
+  sha256 arm:   "6f66b52d6821bd6e8d4bd89a279d1ea5d477210c18811766ff253da9e4732c20",
+         intel: "97e6e1147e8c99ffac0e1e39e08b87fd828c6d5b73502d6125e889bf1fcad52d"
 
   url "https://www.shutterencoder.com/Shutter%20Encoder%20#{version}%20#{arch.gsub(" ", "%20")}.pkg"
   name "Shutter Encoder"

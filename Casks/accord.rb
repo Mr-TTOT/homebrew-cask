@@ -1,6 +1,6 @@
 cask "accord" do
-  version "1.3.1"
-  sha256 "645ce99c275aa027d30ad9a758d11075dceb5f1d19e92a9af6574ad9c760fe15"
+  version "1.5"
+  sha256 "36e8970a058b01c302ffbe2a04ce36a77efb75b7add91e2ff2c10b34073f7d73"
 
   url "https://github.com/evelyneee/accord/releases/download/v#{version}/Accord.zip"
   name "accord"

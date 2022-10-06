@@ -1,19 +1,20 @@
 cask "steam-plus-plus" do
-  arch = Hardware::CPU.intel? ? "x64" : "arm64"
+  arch arm: "arm64", intel: "x64"
 
-  version "2.7.2"
-
-  if Hardware::CPU.intel?
-    sha256 "f31fe7ecda1b84aca2cdeeabbb5fc1f3c8c533b1a1a2877ba3da5228068b4ce8"
-  else
-    sha256 "143a42787341bebf849a9ce754ba2758267b399a394adc016d398e7e81120355"
-  end
+  version "2.8.4"
+  sha256 arm:   "b321b7b549680bdfcac8201dd5f1945120f3b30fca033f035387e182801dce74",
+         intel: "dbe227f9d2d819698744cca32b6c52473b88058249480a226501adde8c395b86"
 
   url "https://github.com/BeyondDimension/SteamTools/releases/download/#{version}/Steam++_macos_#{arch}_v#{version}.dmg",
       verified: "github.com/BeyondDimension/SteamTools/"
   name "Steam++"
   desc "Steam helper tools"
   homepage "https://steampp.net/"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   depends_on macos: ">= :mojave"
 

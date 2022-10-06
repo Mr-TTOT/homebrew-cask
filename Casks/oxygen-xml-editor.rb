@@ -1,7 +1,7 @@
 cask "oxygen-xml-editor" do
-  arch = Hardware::CPU.intel? ? "" : "-aarch64"
+  arch arm: "-aarch64"
 
-  version "24.1,2022062007"
+  version "24.1,2022092207"
   sha256 :no_check
 
   url "https://www.oxygenxml.com/InstData/Editor/MacOSX/VM/oxygen-openjdk#{arch}.dmg"
@@ -20,5 +20,11 @@ cask "oxygen-xml-editor" do
     end
   end
 
+  depends_on macos: ">= :sierra"
+
   suite "Oxygen XML Editor"
+
+  caveats do
+    license "https://www.oxygenxml.com/eula.html"
+  end
 end
